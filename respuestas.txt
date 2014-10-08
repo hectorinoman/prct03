@@ -1,0 +1,3 @@
+Utilizando ruby se compila por medio del interprete situado en #! /usr/bin...., mientras que irb es un interprete interactivo donde podemos escribir linea por linea e ir comprobando y depurando posibles errores
+
+
