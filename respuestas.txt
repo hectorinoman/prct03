@@ -1,3 +1,13 @@
 Utilizando ruby se compila por medio del interprete situado en #! /usr/bin...., mientras que irb es un interprete interactivo donde podemos escribir linea por linea e ir comprobando y depurando posibles errores
 
+26. 
 
+nil
+:hello
+nil
+nil
+nil
+"changed"
+
+
+27. Con el primero ya tenemos el programa cargado y llamamos al interprete es mas comodo para trabajar y el segundo directamente tienes que poner linea por linea todas las fases de tu programa, depuras errores pero debes escribirlo linea por linea
