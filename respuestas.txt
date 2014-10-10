@@ -1,4 +1,5 @@
-Utilizando ruby se compila por medio del interprete situado en #! /usr/bin...., mientras que irb es un interprete interactivo donde podemos escribir linea por linea e ir comprobando y depurando posibles errores
+21.
+Utilizando ruby se compila por medio del interprete situado en #! /usr/bin/env ruby, mientras que irb es un interprete interactivo donde podemos escribir linea por linea e ir comprobando y depurando posibles errores
 
 26. 
 
@@ -10,7 +11,7 @@ nil
 "changed"
 
 
-27. Con el primero ya tenemos el programa cargado y llamamos al interprete es mas comodo para trabajar y el segundo directamente tienes que poner linea por linea todas las fases de tu programa, depuras errores pero debes escribirlo linea por linea
+27. Con el primero ya tenemos el programa cargado y llamamos al interprete y el segundo directamente tienes que poner linea por linea todas las fases de tu programa, depuras errores pero debes escribirlo linea por linea. No es mejor usar uno que otro
 
 
 34.
@@ -105,6 +106,222 @@ nil
 => ["a", "b"]
 [46] pry(main)> a[-2,-1]
 => nil
+
+
+51.
+2.1.1 :019 >   a
+ => ["a", "b", "c", "d", "e"] 
+2.1.1 :020 > a[0,2] = %w{A B}
+ => ["A", "B"] 
+2.1.1 :021 > a
+ => ["A", "B", "c", "d", "e"] 
+2.1.1 :022 > a[0,0] = [1,2,3]
+ => [1, 2, 3] 
+2.1.1 :023 > a
+ => [1, 2, 3, "A", "B", "c", "d", "e"] 
+2.1.1 :024 > a[0,2] = []
+ => [] 
+2.1.1 :025 > a
+ => [3, "A", "B", "c", "d", "e"] 
+2.1.1 :026 > a[-1,1] = [ 'Z' ]
+ => ["Z"] 
+2.1.1 :027 > a
+ => [3, "A", "B", "c", "d", "Z"] 
+2.1.1 :028 > a[-2,2] = nil
+ => nil 
+2.1.1 :029 > a
+ => [3, "A", "B", "c", nil] 
+2.1.1 :030 > 
+
+
+52.
+2.1.1 :035 >   a = (1...4).to_a
+ => [1, 2, 3] 
+2.1.1 :036 > a = a + [4, 5]
+ => [1, 2, 3, 4, 5] 
+2.1.1 :037 > a 
+ => [1, 2, 3, 4, 5] 
+2.1.1 :038 > a += [[6,7,8]]
+ => [1, 2, 3, 4, 5, [6, 7, 8]] 
+2.1.1 :039 > a = a + 9
+TypeError: no implicit conversion of Fixnum into Array
+	from (irb):39:in `+'
+	from (irb):39
+	from /Users/Hectorinoman/.rvm/rubies/ruby-2.1.1/bin/irb:11:in `<main>'
+2.1.1 :040 > a = a+9
+
+
+53.
+2.1.1 :047 >   x = %w{a b c b a}
+ => ["a", "b", "c", "b", "a"] 
+2.1.1 :048 > x
+ => ["a", "b", "c", "b", "a"] 
+2.1.1 :049 > x = x - %w{b c b}
+ => ["a", "a"] 
+2.1.1 :050 > 
+
+
+54.
+2.1.1 :050 > z = [0]*8
+ => [0, 0, 0, 0, 0, 0, 0, 0] 
+
+55.
+2.1.1 :051 > a = []
+ => [] 
+2.1.1 :052 > a << 1
+ => [1] 
+2.1.1 :053 > a << 2 << 3
+ => [1, 2, 3] 
+2.1.1 :054 > a << [4,5,6]
+ => [1, 2, 3, [4, 5, 6]] 
+2.1.1 :055 > a.concat [7,8]
+ => [1, 2, 3, [4, 5, 6], 7, 8] 
+2.1.1 :056 > 
+
+56.
+2.1.1 :059 >   a = [1, 1, 2, 2, 3, 3, 4]
+ => [1, 1, 2, 2, 3, 3, 4] 
+2.1.1 :060 > b = [5, 5, 4, 4, 3, 3, 2]
+ => [5, 5, 4, 4, 3, 3, 2] 
+2.1.1 :061 > c = a | b
+ => [1, 2, 3, 4, 5] 
+
+ 57.
+ 2.1.1 :066 >   a = 1..10
+ => 1..10 
+2.1.1 :067 > a.class
+ => Range 
+2.1.1 :068 > a.to_a
+ => [1, 2, 3, 4, 5, 6, 7, 8, 9, 10] 
+2.1.1 :069 > b = 1..10
+ => 1..10 
+2.1.1 :070 > b.to_a
+ => [1, 2, 3, 4, 5, 6, 7, 8, 9, 10] 
+2.1.1 :071 > b.include? 10
+ => true 
+2.1.1 :072 > b.include? 8
+ => true 
+2.1.1 :073 > b.step(2) {|x| print "#{x} " }
+1 3 5 7 9  => 1..10 
+2.1.1 :074 > 1..3.to_a
+NoMethodError: undefined method `to_a' for 3:Fixnum
+	from (irb):74
+	from /Users/Hectorinoman/.rvm/rubies/ruby-2.1.1/bin/irb:11:in `<main>'
+2.1.1 :075 > 
+
+
+58.
+2.1.1 :078 >   r = 0...100
+ => 0...100 
+2.1.1 :079 > r.member? 50
+ => true 
+2.1.1 :080 > r.include? 99.9
+ => true 
+2.1.1 :081 > r.member? 99.9
+ => true 
+
+
+59.
+2.1.1 :088 >   true.class
+ => TrueClass 
+2.1.1 :089 > false.class
+ => FalseClass 
+2.1.1 :090 > puts "Hello" if 0
+Hello
+ => nil 
+2.1.1 :091 > puts "Hello" if nil
+ => nil 
+2.1.1 :092 > puts "Hello" if ""
+(irb):92: warning: string literal in condition
+Hello
+ => nil 
+
+
+60.
+2.1.1 :098 >   x = :sym
+ => :sym 
+2.1.1 :099 > x.class
+ => Symbol 
+2.1.1 :100 > x == 'sym'
+ => false 
+2.1.1 :101 > x == :sym
+ => true 
+2.1.1 :102 > z = :'a long symbol'
+ => :"a long symbol" 
+2.1.1 :103 > z.class
+ => Symbol 
+2.1.1 :104 > x == 'sym'.to_sym
+ => true 
+2.1.1 :105 > x.to_s == 'sym'
+ => true 
+
+
+61.
+2.1.1 :004 >   s = "Ruby"
+ => "Ruby" 
+2.1.1 :005 > t = s
+ => "Ruby" 
+2.1.1 :006 > t[-1] = ""
+ => "" 
+2.1.1 :007 > print s
+Rub => nil 
+2.1.1 :008 > t = "Java"
+ => "Java" 
+2.1.1 :009 > print s,t
+RubJava => nil 
+2.1.1 :010 > 
+
+
+
+62.
+2.1.1 :001 > "%d %s" % [3, "rubies"]
+ => "3 rubies" 
+
+
+ 63.
+ 2.1.1 :004 >   x, y = 4, 5
+ => [4, 5] 
+2.1.1 :005 > z = x > y ? x : y
+ => 5 
+2.1.1 :006 > x,y,z = [1,2,3]
+ => [1, 2, 3] 
+2.1.1 :007 > 
+
+64.
+2.1.1 :011 >   x = { :a => 1, :b => 2 }
+ => {:a=>1, :b=>2} 
+2.1.1 :012 > x.keys
+ => [:a, :b] 
+2.1.1 :013 > x.values
+ => [1, 2] 
+2.1.1 :014 > x[:c] = 3
+ => 3 
+2.1.1 :015 > x
+ => {:a=>1, :b=>2, :c=>3} 
+2.1.1 :016 > x.delete('a')
+ => nil 
+2.1.1 :017 > x
+ => {:a=>1, :b=>2, :c=>3} 
+2.1.1 :018 > x.delete(:a)
+ => 1 
+2.1.1 :019 > x
+ => {:b=>2, :c=>3} 
+2.1.1 :020 > x = { :a => 1, :b => 2, :c => 4 }
+ => {:a=>1, :b=>2, :c=>4} 
+2.1.1 :021 > x.delete_if { |k,v| v % 2 == 0 }
+ => {:a=>1} 
+2.1.1 :022 > x
+ => {:a=>1} 
+
+
+
+65.
+Los valores hash permiten una forma sintaxis alternativa cuando sus teclas son siempre símbolos
+
+
+66.
+2.1.1 :034 >  'hello world, hello LPP'.scan /\w+/
+ => ["hello", "world", "hello", "LPP"] 
 
 
 
